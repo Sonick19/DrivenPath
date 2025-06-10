@@ -1,0 +1,142 @@
+[2025-04-09T15:24:09.544+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-09T15:24:09.560+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-04-09T15:24:00.968064+00:00 [queued]>
+[2025-04-09T15:24:09.568+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-04-09T15:24:00.968064+00:00 [queued]>
+[2025-04-09T15:24:09.568+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-04-09T15:24:09.697+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_staging> on 2025-04-09 15:24:00.968064+00:00
+[2025-04-09T15:24:09.703+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=222) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-09T15:24:09.705+0000] {standard_task_runner.py:72} INFO - Started process 224 to run task
+[2025-04-09T15:24:09.706+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'run_dbt_staging', 'manual__2025-04-09T15:24:00.968064+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/driven_data_pipeline.py', '--cfg-path', '/tmp/tmpp9oafyvm']
+[2025-04-09T15:24:09.707+0000] {standard_task_runner.py:105} INFO - Job 74: Subtask run_dbt_staging
+[2025-04-09T15:24:09.857+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-04-09T15:24:00.968064+00:00 [running]> on host 5a8aeda502d0
+[2025-04-09T15:24:10.032+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-04-09T15:24:00.968064+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-09T15:24:00.968064+00:00'
+[2025-04-09T15:24:10.033+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-09T15:24:10.046+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-04-09T15:24:10.047+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -x; cd /opt/***/dbt && dbt run --select tag:staging']
+[2025-04-09T15:24:10.056+0000] {subprocess.py:86} INFO - Output:
+[2025-04-09T15:24:10.057+0000] {subprocess.py:93} INFO - + cd /opt/***/dbt
+[2025-04-09T15:24:10.058+0000] {subprocess.py:93} INFO - + dbt run --select tag:staging
+[2025-04-09T15:24:12.620+0000] {subprocess.py:93} INFO - [0m15:24:12  Running with dbt=1.8.0
+[2025-04-09T15:24:12.960+0000] {subprocess.py:93} INFO - [0m15:24:12  Registered adapter: postgres=1.8.2
+[2025-04-09T15:24:13.218+0000] {subprocess.py:93} INFO - [0m15:24:13  Unable to do partial parsing because of a version mismatch
+[2025-04-09T15:24:13.248+0000] {subprocess.py:93} INFO - [0m15:24:13  Encountered an error:
+[2025-04-09T15:24:13.249+0000] {subprocess.py:93} INFO - 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2025-04-09T15:24:13.251+0000] {subprocess.py:93} INFO - [0m15:24:13  Traceback (most recent call last):
+[2025-04-09T15:24:13.251+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 138, in wrapper
+[2025-04-09T15:24:13.252+0000] {subprocess.py:93} INFO -     result, success = func(*args, **kwargs)
+[2025-04-09T15:24:13.252+0000] {subprocess.py:93} INFO -                       ^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.252+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 101, in wrapper
+[2025-04-09T15:24:13.253+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2025-04-09T15:24:13.253+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.254+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 218, in wrapper
+[2025-04-09T15:24:13.441+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2025-04-09T15:24:13.442+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.442+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 247, in wrapper
+[2025-04-09T15:24:13.443+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2025-04-09T15:24:13.443+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.444+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 294, in wrapper
+[2025-04-09T15:24:13.444+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2025-04-09T15:24:13.444+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.445+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 320, in wrapper
+[2025-04-09T15:24:13.445+0000] {subprocess.py:93} INFO -     ctx.obj["manifest"] = parse_manifest(
+[2025-04-09T15:24:13.446+0000] {subprocess.py:93} INFO -                           ^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.446+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/parser/manifest.py", line 1898, in parse_manifest
+[2025-04-09T15:24:13.447+0000] {subprocess.py:93} INFO -     manifest = ManifestLoader.get_full_manifest(
+[2025-04-09T15:24:13.447+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.448+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/parser/manifest.py", line 330, in get_full_manifest
+[2025-04-09T15:24:13.448+0000] {subprocess.py:93} INFO -     manifest = loader.load()
+[2025-04-09T15:24:13.448+0000] {subprocess.py:93} INFO -                ^^^^^^^^^^^^^
+[2025-04-09T15:24:13.449+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/parser/manifest.py", line 377, in load
+[2025-04-09T15:24:13.449+0000] {subprocess.py:93} INFO -     file_reader.read_files()
+[2025-04-09T15:24:13.450+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/parser/read_files.py", line 210, in read_files
+[2025-04-09T15:24:13.450+0000] {subprocess.py:93} INFO -     self.read_files_for_project(project, file_types)
+[2025-04-09T15:24:13.451+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/parser/read_files.py", line 217, in read_files_for_project
+[2025-04-09T15:24:13.451+0000] {subprocess.py:93} INFO -     project_files[file_type_info["parser"]] = read_files_for_parser(
+[2025-04-09T15:24:13.452+0000] {subprocess.py:93} INFO -                                               ^^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.452+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/parser/read_files.py", line 165, in read_files_for_parser
+[2025-04-09T15:24:13.453+0000] {subprocess.py:93} INFO -     source_files = get_source_files(
+[2025-04-09T15:24:13.454+0000] {subprocess.py:93} INFO -                    ^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.454+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/parser/read_files.py", line 154, in get_source_files
+[2025-04-09T15:24:13.454+0000] {subprocess.py:93} INFO -     file = load_source_file(fp, parse_file_type, project.project_name, saved_files)
+[2025-04-09T15:24:13.455+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.455+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/parser/read_files.py", line 82, in load_source_file
+[2025-04-09T15:24:13.456+0000] {subprocess.py:93} INFO -     file_contents = load_file_contents(path.absolute_path, strip=True)
+[2025-04-09T15:24:13.457+0000] {subprocess.py:93} INFO -                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.458+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt_common/clients/system.py", line 178, in load_file_contents
+[2025-04-09T15:24:13.458+0000] {subprocess.py:93} INFO -     to_return = handle.read().decode("utf-8")
+[2025-04-09T15:24:13.459+0000] {subprocess.py:93} INFO -                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-04-09T15:24:13.460+0000] {subprocess.py:93} INFO - UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2025-04-09T15:24:13.460+0000] {subprocess.py:93} INFO - 
+[2025-04-09T15:24:14.364+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2025-04-09T15:24:14.376+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-04-09T15:24:14.380+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=extract_raw_data_pipeline, task_id=run_dbt_staging, run_id=manual__2025-04-09T15:24:00.968064+00:00, execution_date=20250409T152400, start_date=20250409T152409, end_date=20250409T152414
+[2025-04-09T15:24:14.432+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-09T15:24:14.433+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 74 for task run_dbt_staging (Bash command failed. The command returned a non-zero exit code 2.; 224)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-04-09T15:24:14.459+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-09T15:24:14.482+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-09T15:24:14.512+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
