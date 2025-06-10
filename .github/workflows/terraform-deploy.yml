@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
    runs-on: ubuntu-latest
+   defaults:
+      run:
+        working-directory: terraform
    
    steps:
      - name: Checkout code
@@ -24,9 +27,6 @@ jobs:
          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
          aws-region: ${{ secrets.AWS_REGION }}
-         
-     - name: Change dir
-       run: cd terraform
        
      - name: Initialize Terraform
        run: terraform init
