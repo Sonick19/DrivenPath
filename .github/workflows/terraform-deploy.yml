@@ -25,7 +25,7 @@ jobs:
          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
          aws-region: ${{ secrets.AWS_REGION }}
          
-     - name Change dir
+     - name: Change dir
        run: cd terraform
        
      - name: Initialize Terraform
