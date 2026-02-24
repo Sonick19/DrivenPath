@@ -1,0 +1,32 @@
+name: duckdb
+services:
+  dbt:
+    image: xemuliam/dbt:duckdb
+    ports:
+        - '8080:8080'
+    depends_on: 
+      - postgres
+    volumes:
+      - .:/usr/app/expert_task_v2
+    working_dir: /usr/app/expert_task_v2
+    command: >
+      sh -c '''
+        rm -f *.duckdb
+        dbt clean
+        dbt run
+        dbt docs generate
+        dbt docs serve --host=0.0.0.0 && tail -f /dev/null
+      '''
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+    - "5433:5432"
+    volumes:
+      - .pgdata:/var/lib/postgresql/data
+      
+      
+  

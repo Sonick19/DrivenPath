@@ -1,0 +1,23 @@
+name: 'expert_task_project'
+version: '1.0'
+profile: 'default'
+model-paths: ["models"]
+models:
+  expert_task_project:
+    raw:
+      schema: raw
+      materialized: table
+      +docs:
+        node_color: '#cd7f32'
+    staging:
+      schema: staging
+      materialized: view
+      +docs:
+        node_color: 'silver'
+    mart:
+      database: postgres_db
+      schema: mart
+      materialized: table
+      +docs:
+        node_color: 'gold'
+    

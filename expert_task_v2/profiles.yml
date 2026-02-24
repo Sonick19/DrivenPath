@@ -1,0 +1,10 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: result.duckdb
+      attach:
+        - path: postgresql://postgres:postgres@postgres/postgres
+          type: postgres
+          alias: postgres_db

@@ -1,0 +1,35 @@
+:: Requirements:
+:: dbt-core must be installed outside the container
+
+:: PRECLEANING: 
+:: To clean previous environment
+del .\duckdb.db :: Windows
+rm ./duckdb.db :: POSIX
+dbt clean   
+
+:: BUILDING:
+:: To create Duck Database "duckdb.db"
+:: Docker compose includes dbt run inside.
+docker compose up
+
+:: If KeyError(due to different dbt and adapter versions), run:
+dbt parse --no-partial-parse
+
+
+:: PROCESSING:
+:: To look through the docs
+dbt docs generate
+dbt docs serve
+
+
+:: To see database data
+dbt show --select customers
+dbt show --select orders --limit 20
+dbt show --select payments --limit 20
+:: Or via DBeaver 
+
+
+:: DBT TESTING:
+dbt debug
+dbt test
+dbt --version
